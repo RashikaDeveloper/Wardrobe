@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header class="heading">  
+  <h1 class="heading__tittle"><img src="image/arrow.jpg" alt="icon"class="heading__image">WardRope</h1>
+  <nav class="heading__list">
+    <ul>
+        <li class="heading__list__item"> <a href="index.html">Home</a></li>
+        <li class="heading__list__item"><a href="collection.html">Collections</a></li>
+        <li class="heading__list__item"><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+<div class="menu_bar_icon">
+  <i class="fa-solid fa-bars" style="color: #0e2a53;"></i></div>
+</header>
+<!-- side bar -->
+ <aside class="side_navbar">
+  <p class="side_navbar_close"><i class="fa-solid fa-xmark"></i></p>
+  <nav class="side_navbar_link">
+    <ul class="side_navbar_par">
+      <li class="side__list__item"> <a href="index.html">Home</a></li>
+      <li class="side__list__item"><a href="collection.html">Collections</a></li>
+      <li class="side__list__item"><a href="contact.html">Contact</a></li>
+  </ul>
+  </nav>
+ </aside>
+ <!-- contact details -->
+  <section class="contact">
+    <h2>Contact us</h2>
+    <form class="contact_details">
+      
+      
+      
+      <div class="contact_form">
+        <label>Name</label>
+        <input type="text" class="name" placeholder="Enter Your name">
+        <span class="nameerror">Name must contain a letter</span>
+      </div>
+     
+     
+      <div class="contact_form">
+       <label>Address</label>
+       <input type="text" class="address" placeholder="Enter Your address">
+       <span class="addresserror">Properly Enter your address</span>
+      </div>
+     
+     
+      <div class="contact_form">
+       <label >E-mail</label>
+       <input type="text" class="email" placeholder="Enter Your e-mail">
+       <span class="emailerror">You must enter a @gmail.com</span>
+      </div>
+      
+      
+      
+      <div class="contact_form">
+       <label>Message</label>
+       <textarea class="message" placeholder="Enter Your message " rows="5"></textarea>
+       <span class="messageerror">To write a message box</span>
+      </div>
+      
+      
+      <button class="contact_btn">Submit</button>
+    </form>
+   
+  </section>
+  <footer class="footer1">
+    <p>&copy;2024 WardRobe</p>
+     </footer>
+     <script src="script.js"></script>
+</body>
+<script>
+  
+    // Contact form validation
+    const submit = document.querySelector(".contact_btn");
+    submit.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // Input fields
+        const name = document.querySelector(".name").value.trim();
+        const address = document.querySelector(".address").value.trim();
+        const email = document.querySelector(".email").value.trim();
+        const message = document.querySelector(".message").value.trim();
+
+        // Error elements
+        const nameerror = document.querySelector(".nameerror");
+        const addresserror = document.querySelector(".addresserror");
+        const emailerror = document.querySelector(".emailerror");
+        const messageerror = document.querySelector(".messageerror");
+
+        let occured = true;
+
+        // Name validation
+        if (/^[a-zA-Z\s]+$/.test(name)) {
+            nameerror.style.display = "none";
+        } else {
+            nameerror.style.display = "inline";
+            occured = false;
+        }
+
+        //  Address validation
+        if (/^[a-zA-Z0-9.,\s]+$/.test(address)) {
+          addresserror.style.display = "none";
+        } else {
+            addresserror.style.display = "inline";
+            occured = false;
+        }
+
+
+        // Email validation
+        if (/^[a-zA-Z0-9.%_+-]@gmail\.com$/.test(email)) {
+            emailerror.style.display = "none";
+        } else {
+            emailerror.style.display = "inline";
+            occured = false;
+        }
+
+        // Message validation
+
+        if (/^[A-Za-z0-9\s.*%,!?;:(){}"-]+$/.test(message)) {
+          messageerror.style.display = "none";
+        } else {
+            messageerror.style.display = "inline";
+            occured = false;
+        }
+  
+        if (occured) {
+            alert("Wardrobe mission is successfully submitted.");
+           const submited=  document.querySelector(".contact_details");
+           submited.submit()
+           console.log(submited);
+           
+        }
+      })    
+
+</script>
+</html>
